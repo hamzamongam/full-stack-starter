@@ -57,7 +57,7 @@ export function TaskForm({ form, handleSubmit, isPending }: TaskFormProps) {
 								disabled={isPending}
 								data={[
 									{ label: "Pending", value: "pending" },
-									{ label: "In Progress", value: "in-progress" },
+									{ label: "In Progress", value: "in_progress" },
 									{ label: "Completed", value: "completed" },
 								]}
 							/>

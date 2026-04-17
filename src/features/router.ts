@@ -5,6 +5,5 @@ import { TaskRouter } from "./task/domain/task.router";
 export const router = {
 	task: TaskRouter,
 	auth: authRouter,
-
 	media: MediaRouter,
 };

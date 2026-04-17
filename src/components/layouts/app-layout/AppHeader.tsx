@@ -1,6 +1,6 @@
-import { Link, useNavigate } from "@tanstack/react-router";
-import { LogOut, Menu, Search, Shield, ShoppingCart, User } from "lucide-react";
-import { type FC, useState } from "react";
+import { Link } from "@tanstack/react-router";
+import { LogOut, Menu, Shield, User } from "lucide-react";
+import type { FC } from "react";
 import { BaseButton } from "@/components/base/button/BaseButton";
 import {
 	DropdownMenu,
@@ -13,52 +13,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useAuth } from "@/features/auth/hooks/useAuth";
-import { CartDrawer } from "@/features/store/ui/components/CartDrawer";
-import { useCart } from "@/features/store/ui/hooks/useCartStore";
 
 const AppHeader: FC = () => {
 	const { session, handleLogout } = useAuth();
-	const { totalItems, openDrawer } = useCart();
-	const [search, setSearch] = useState("");
-	const navigate = useNavigate();
-
-	const handleSearch = (e: React.FormEvent) => {
-		e.preventDefault();
-		if (!search.trim()) return;
-		navigate({
-			to: "/shop",
-			search: { search: search.trim() },
-		});
-		setSearch(""); // Clear search after navigation
-	};
 
 	return (
 		<header className="sticky top-0 z-50 w-full bg-[#032F2D] text-white">
 			<div className="container mx-auto px-4 h-20 flex items-center justify-between gap-4 md:gap-8">
-				{/* Logo with Box */}
+				{/* Logo */}
 				<Link to="/" className="flex items-center shrink-0">
 					<img src="/logo.svg" alt="Seagle" className="" />
 				</Link>
-
-				{/* Search Bar - Desktop */}
-				<form
-					onSubmit={handleSearch}
-					className="hidden md:flex  flex-1  relative"
-				>
-					<input
-						type="text"
-						placeholder="Search for anything related fishing"
-						className="w-full bg-white text-foreground rounded-none py-2.5 px-4 pr-12 focus:outline-none"
-						value={search}
-						onChange={(e) => setSearch(e.target.value)}
-					/>
-					<button
-						type="submit"
-						className="absolute right-0 top-0 h-full w-12 flex items-center justify-center border-l border-gray-100 hover:bg-gray-50 transition-colors"
-					>
-						<Search className="w-5 h-5 text-[#00C2B8]" />
-					</button>
-				</form>
 
 				{/* Actions */}
 				<div className="flex items-center gap-2 md:gap-4">
@@ -112,15 +77,6 @@ const AppHeader: FC = () => {
 											<DropdownMenuSeparator className="bg-gray-100" />
 										</>
 									)}
-									<DropdownMenuItem
-										render={
-											<Link to="/my-account" className="flex items-center w-full">
-												<User className="mr-2 h-4 w-4 opacity-70 group-hover:opacity-100" />
-												<span className="font-medium">My Profile</span>
-											</Link>
-										}
-										className="rounded-xl px-2 py-2.5 hover:bg-[#00C2B8]/10 hover:text-[#032F2D] transition-colors cursor-pointer group mt-1"
-									></DropdownMenuItem>
 									<DropdownMenuSeparator className="bg-gray-100" />
 									<DropdownMenuItem
 										onClick={handleLogout}
@@ -143,25 +99,7 @@ const AppHeader: FC = () => {
 						</Link>
 					)}
 
-					<BaseButton
-						variant="ghost"
-						className="flex items-center gap-2 text-white hover:text-white  hover:bg-white/10 shrink-0 h-10 px-3 rounded-none relative overflow-visible"
-						onClick={openDrawer}
-						leftIcon={
-							<div className="relative">
-								<ShoppingCart className="w-5 h-5 text-white" />
-								{totalItems > 0 && (
-									<span className="absolute -top-2 -right-2 bg-[#00C2B8] text-[#032F2D] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-[#032F2D]">
-										{totalItems}
-									</span>
-								)}
-							</div>
-						}
-					>
-						<span className="font-bold text-sm hidden sm:inline">Cart</span>
-					</BaseButton>
-
-					{/* Mobile Menu & Search Icon */}
+					{/* Mobile Menu */}
 					<div className="md:hidden flex items-center gap-2">
 						<Sheet>
 							<SheetTrigger
@@ -182,30 +120,25 @@ const AppHeader: FC = () => {
 										Home
 									</Link>
 									<Link
-										to="/shop"
-										className="text-white hover:text-[#00C2B8] transition-colors"
-									>
-										Shop
-									</Link>
-									<Link
 										to="/login"
 										className="text-white hover:text-[#00C2B8] transition-colors"
 									>
 										Login
 									</Link>
-									<Link
-										to="/admin/products"
-										className="text-white hover:text-[#00C2B8] transition-colors"
-									>
-										Admin
-									</Link>
+									{session?.user.role === "admin" && (
+										<Link
+											to="/admin"
+											className="text-white hover:text-[#00C2B8] transition-colors"
+										>
+											Admin Panel
+										</Link>
+									)}
 								</nav>
 							</SheetContent>
 						</Sheet>
 					</div>
 				</div>
 			</div>
-			<CartDrawer />
 		</header>
 	);
 };

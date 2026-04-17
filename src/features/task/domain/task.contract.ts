@@ -7,9 +7,7 @@ import {
 import { CreateTaskSchema, TaskSchema, UpdateTaskSchema } from "./task.schema";
 
 export const TaskContract = oc.router({
-	create: oc
-		.input(CreateTaskSchema)
-		.output(SuccessResponseSchema(TaskSchema)),
+	create: oc.input(CreateTaskSchema).output(SuccessResponseSchema(TaskSchema)),
 	update: oc
 		.input(UpdateTaskSchema.extend({ id: z.string() }))
 		.output(SuccessResponseSchema(TaskSchema)),

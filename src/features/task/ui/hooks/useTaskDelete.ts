@@ -13,7 +13,7 @@ interface DeleteContext {
 
 export const useTaskDelete = () => {
 	const queryClient = useQueryClient();
-	
+
 	const { mutateAsync: deleteTask, isPending: isDeleting } = useOrpcMutation(
 		orpc.task.delete.mutationOptions({
 			onMutate: async (id: string) => {
@@ -23,16 +23,21 @@ export const useTaskDelete = () => {
 
 				await queryClient.cancelQueries({ queryKey });
 
-				const previousTasks =
-					queryClient.getQueryData<{ data: TTaskOutput[]; meta: unknown }>(queryKey);
+				const previousTasks = queryClient.getQueryData<{
+					data: TTaskOutput[];
+					meta: unknown;
+				}>(queryKey);
 
-				queryClient.setQueryData<{ data: TTaskOutput[]; meta: unknown }>(queryKey, (old) => {
-					if (!old) return old;
-					return {
-						...old,
-						data: old.data.filter((task) => task.id !== id),
-					};
-				});
+				queryClient.setQueryData<{ data: TTaskOutput[]; meta: unknown }>(
+					queryKey,
+					(old) => {
+						if (!old) return old;
+						return {
+							...old,
+							data: old.data.filter((task) => task.id !== id),
+						};
+					},
+				);
 
 				return { previousTasks, queryKey } as DeleteContext;
 			},
@@ -65,7 +70,7 @@ export const useTaskDelete = () => {
 				},
 			});
 		},
-		[deleteTask]
+		[deleteTask],
 	);
 
 	return { handleDelete, isDeleting };

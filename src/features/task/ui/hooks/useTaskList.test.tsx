@@ -1,9 +1,10 @@
 // @vitest-environment jsdom
-import { renderHook, waitFor } from "@testing-library/react";
-import { describe, expect, it, vi, beforeEach } from "vitest";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useTaskList } from "./useTaskList";
+import { renderHook, waitFor } from "@testing-library/react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { orpc } from "@/server/orpc/client";
+import { useTaskList } from "./useTaskList";
 
 vi.mock("@/server/orpc/client", () => ({
 	orpc: {
@@ -31,7 +32,7 @@ describe("useTaskList", () => {
 
 	it("returns query data cleanly mapped to orpc", async () => {
 		const mockTasks = [{ id: "1", title: "Test Task" }];
-		
+
 		vi.mocked(orpc.task.getAll.queryOptions).mockReturnValue({
 			queryKey: ["task", "getAll"],
 			queryFn: () => Promise.resolve(mockTasks),

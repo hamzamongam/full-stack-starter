@@ -63,25 +63,33 @@ const useTaskForm = ({
 	const { mutate: createTask, isPending: isCreating } = useOrpcMutation(
 		orpc.task.create.mutationOptions({
 			onMutate: async (newTask) => {
-				const queryKey = orpc.task.getAll.queryKey({ input: { page: 1, limit: 10 } });
-				await queryClient.cancelQueries({ queryKey });
-				const previousTasks = queryClient.getQueryData<{ data: TTaskOutput[]; meta: unknown }>(queryKey);
-
-				queryClient.setQueryData<{ data: TTaskOutput[]; meta: unknown }>(queryKey, (old) => {
-					if (!old) return old;
-					return {
-						...old,
-						data: [
-							{
-								...newTask,
-								id: `temp-id-${Math.random()}`,
-								createdAt: new Date(),
-								updatedAt: new Date(),
-							} as TTaskOutput,
-							...old.data,
-						],
-					};
+				const queryKey = orpc.task.getAll.queryKey({
+					input: { page: 1, limit: 10 },
 				});
+				await queryClient.cancelQueries({ queryKey });
+				const previousTasks = queryClient.getQueryData<{
+					data: TTaskOutput[];
+					meta: unknown;
+				}>(queryKey);
+
+				queryClient.setQueryData<{ data: TTaskOutput[]; meta: unknown }>(
+					queryKey,
+					(old) => {
+						if (!old) return old;
+						return {
+							...old,
+							data: [
+								{
+									...newTask,
+									id: `temp-id-${Math.random()}`,
+									createdAt: new Date(),
+									updatedAt: new Date(),
+								} as TTaskOutput,
+								...old.data,
+							],
+						};
+					},
+				);
 
 				return { previousTasks, queryKey } as CreateTaskContext;
 			},
@@ -109,7 +117,9 @@ const useTaskForm = ({
 				if (!taskId) return;
 				const queryKey = orpc.task.getById.queryKey({ input: taskId });
 				await queryClient.cancelQueries({ queryKey });
-				const previousTask = queryClient.getQueryData<{ data: TTaskOutput }>(queryKey);
+				const previousTask = queryClient.getQueryData<{ data: TTaskOutput }>(
+					queryKey,
+				);
 
 				queryClient.setQueryData<{ data: TTaskOutput }>(queryKey, (old) => {
 					if (!old) return old;
@@ -140,7 +150,9 @@ const useTaskForm = ({
 					});
 				}
 				queryClient.invalidateQueries({
-					queryKey: orpc.task.getAll.queryKey({ input: { page: 1, limit: 10 } }),
+					queryKey: orpc.task.getAll.queryKey({
+						input: { page: 1, limit: 10 },
+					}),
 				});
 			},
 		}),

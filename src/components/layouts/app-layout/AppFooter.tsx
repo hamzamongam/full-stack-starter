@@ -9,7 +9,7 @@ export function AppFooter() {
 				<div className="container mx-auto px-4">
 					<div className="grid grid-cols-1 md:grid-cols-4 gap-12">
 						{/* Logo & Tagline */}
-						<div className="space-y-8">
+						<div className="space-y-8 col-span-1 md:col-span-2">
 							<Link to="/" className="inline-block">
 								<span className="font-extrabold text-3xl tracking-tighter text-[#00C2B8]">
 									SEAGLE
@@ -21,10 +21,10 @@ export function AppFooter() {
 							</p>
 						</div>
 
-						{/* About Column */}
+						{/* Quick Links Column */}
 						<div className="space-y-6">
 							<h4 className="text-[#00C2B8] text-sm font-bold uppercase tracking-widest">
-								About
+								Quick Links
 							</h4>
 							<ul className="space-y-4 text-xs font-bold uppercase tracking-tight text-white/80">
 								<li>
@@ -37,83 +37,10 @@ export function AppFooter() {
 								</li>
 								<li>
 									<Link
-										to="/about"
+										to="/login"
 										className="hover:text-[#00C2B8] transition-colors"
 									>
-										About Seagle
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="/distribution"
-										className="hover:text-[#00C2B8] transition-colors"
-									>
-										Get Distribution
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="/contact"
-										className="hover:text-[#00C2B8] transition-colors"
-									>
-										Contact
-									</Link>
-								</li>
-							</ul>
-						</div>
-
-						{/* Customer Policy Column */}
-						<div className="space-y-6">
-							<h4 className="text-[#00C2B8] text-sm font-bold uppercase tracking-widest">
-								Customer Policy
-							</h4>
-							<ul className="space-y-4 text-xs font-bold uppercase tracking-tight text-white/80">
-								<li>
-									<Link
-										to="/shipping-policy"
-										className="hover:text-[#00C2B8] transition-colors"
-									>
-										Shipping Policy
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="/cancellation-returns"
-										className="hover:text-[#00C2B8] transition-colors"
-									>
-										Cancellations & Return
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="/terms"
-										className="hover:text-[#00C2B8] transition-colors"
-									>
-										Terms of Use
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="/security"
-										className="hover:text-[#00C2B8] transition-colors"
-									>
-										Security
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="/privacy"
-										className="hover:text-[#00C2B8] transition-colors"
-									>
-										Privacy
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="/faq"
-										className="hover:text-[#00C2B8] transition-colors"
-									>
-										FAQs
+										Login
 									</Link>
 								</li>
 							</ul>

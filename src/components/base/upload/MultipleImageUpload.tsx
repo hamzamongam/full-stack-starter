@@ -129,7 +129,7 @@ export const MultipleImageUpload: FC<MultipleImageUploadProps> = ({
 								{imgSrc ? (
 									<img
 										src={imgSrc}
-										alt={`Product media ${index + 1}`}
+										alt={`Media preview ${index + 1}`}
 										className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
 									/>
 								) : (

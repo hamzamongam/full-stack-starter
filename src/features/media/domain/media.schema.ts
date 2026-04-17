@@ -1,11 +1,6 @@
 import z from "zod";
 
-export const MediaTypeEnum = z.enum([
-	"product",
-	"category",
-	"banner",
-	"others",
-]);
+export const MediaTypeEnum = z.enum(["banner", "others"]);
 
 export const MediaSchema = z.object({
 	id: z.string(),

@@ -5,7 +5,7 @@ import {
 } from "@aws-sdk/client-s3";
 import { join } from "path";
 import { BadRequestError, NotFoundError } from "@/server/errors";
-import { MediaRepository } from "./media.repo";
+import type { MediaRepository } from "./media.repo";
 import type { TMediaFilter, TMediaType } from "./media.schema";
 
 export class MediaService {

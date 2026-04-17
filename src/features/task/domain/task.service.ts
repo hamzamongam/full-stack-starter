@@ -1,29 +1,29 @@
 import { NotFoundError } from "@/server/errors";
 import type { TaskRepository } from "./task.repo";
-import type {  TCreateTask, TTaskOutput, TUpdateTask } from "./task.schema";
+import type { TCreateTask, TTaskOutput, TUpdateTask } from "./task.schema";
 import type { TaskModel } from "./task.type";
 
 export class TaskService {
 	constructor(private readonly taskRepository: TaskRepository) {}
 
 	async create(data: TCreateTask) {
-		const result= await this.taskRepository.create(data);
+		const result = await this.taskRepository.create(data);
 		return this.formatToOutput(result);
 	}
 
 	async update(where: { id: string }, data: TUpdateTask) {
-		const result= await this.taskRepository.update(where, data);
+		const result = await this.taskRepository.update(where, data);
 		return this.formatToOutput(result);
 	}
 
 	async delete(where: { id: string }) {
-		const result= await this.taskRepository.delete(where);
+		const result = await this.taskRepository.delete(where);
 		return this.formatToOutput(result);
 	}
 
 	async getById(where: { id: string }) {
-		const result= await this.taskRepository.getById(where);
-		if(!result) throw new NotFoundError("Task not found");
+		const result = await this.taskRepository.getById(where);
+		if (!result) throw new NotFoundError("Task not found");
 		return this.formatToOutput(result);
 	}
 

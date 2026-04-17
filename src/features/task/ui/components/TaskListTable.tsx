@@ -71,7 +71,7 @@ const getColumns = (): ColumnDef<TTaskOutput>[] => {
 					"secondary";
 
 				if (status === "completed") variant = "default";
-				if (status === "in-progress") variant = "outline";
+				if (status === "in_progress") variant = "outline";
 
 				return <Badge variant={variant}>{status}</Badge>;
 			},

@@ -43,10 +43,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 							</div>
 							<div className="grid flex-1 text-left text-sm leading-tight ml-2">
 								<span className="truncate font-black text-lg tracking-tighter text-gradient">
-									E-Commerce
+									Seagle
 								</span>
 								<span className="truncate text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60">
-									Admin Suite
+									Workspace
 								</span>
 							</div>
 						</SidebarMenuButton>

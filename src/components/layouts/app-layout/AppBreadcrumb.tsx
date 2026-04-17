@@ -12,16 +12,17 @@ import {
 
 const AppBreadcrumb = () => {
 	const matches = useMatches();
-	
+
 	// Filter matches and generate breadcrumbs
 	// We'll use the last part of the pathname as label if breadcrumb is missing in staticData
 	const breadcrumbs = matches
 		.filter((match) => match.pathname !== "/")
 		.map((match) => {
 			const staticData = match.staticData as { breadcrumb?: string };
-			const label = staticData?.breadcrumb || 
-						  match.pathname.split("/").pop()?.replace(/-/g, " ") || 
-						  "Home";
+			const label =
+				staticData?.breadcrumb ||
+				match.pathname.split("/").pop()?.replace(/-/g, " ") ||
+				"Home";
 			return {
 				label: label.charAt(0).toUpperCase() + label.slice(1),
 				href: match.pathname,

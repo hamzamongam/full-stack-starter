@@ -28,9 +28,7 @@ describe("BaseImageUpload", () => {
 
 	it("handles file selection", async () => {
 		const onChange = vi.fn();
-		const { container } = render(
-			<BaseImageUpload onChange={onChange} />,
-		);
+		const { container } = render(<BaseImageUpload onChange={onChange} />);
 
 		const file = new File(["dummy content"], "test.png", { type: "image/png" });
 		const input = container.querySelector(

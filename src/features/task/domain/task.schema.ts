@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const TaskStatusSchema = z.enum(["pending", "in-progress", "completed"]);
+export const TaskStatusSchema = z.enum(["pending", "in_progress", "completed"]);
 
 export const TaskSchema = z.object({
 	id: z.string(),

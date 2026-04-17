@@ -55,7 +55,11 @@ export type SuccessResponseWithPagination<T> = {
  * with both OpenAPIHandler and RPCHandler types.
  */
 // biome-ignore lint/suspicious/noExplicitAny: interceptor returns unknown result
-export const onGlobalError = async ({ next }: { next: () => Promise<any> }) => {
+export const onGlobalError = async <T>({
+	next,
+}: {
+	next: () => Promise<T>;
+}): Promise<T> => {
 	try {
 		return await next();
 	} catch (error) {
