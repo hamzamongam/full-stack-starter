@@ -1,0 +1,30 @@
+"use client";
+
+import { getRouteApi } from "@tanstack/react-router";
+import { PageLayout } from "@/components/layouts/page-layout";
+import TaskListTable from "../components/TaskListTable";
+import { useTaskList } from "../hooks/useTaskList";
+import AddTaskModal from "../widgets/AddTaskModal";
+
+const route = getRouteApi("/admin/tasks");
+
+export default function TaskView() {
+	const { page, limit } = route.useSearch();
+	const { data: tasks, isLoading } = useTaskList({ page, limit });
+
+	return (
+		<PageLayout
+			title="Tasks"
+			subtitle="View and manage all tasks"
+			actions={<AddTaskModal />}
+		>
+			<TaskListTable
+				data={tasks?.data || []}
+				isLoading={isLoading}
+				total={tasks?.meta?.total}
+				page={page}
+				limit={limit}
+			/>
+		</PageLayout>
+	);
+}

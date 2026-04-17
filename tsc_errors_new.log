@@ -1,0 +1,75 @@
+prisma/seed.ts(28,7): error TS2322: Type '{ name: string; description: string; shortDescription: string; price: number; compareAtPrice: number; sku: string; barcode: string; trackInventory: true; quantity: number; status: string; categoryId: string; }' is not assignable to type '(Without<ProductCreateInput, ProductUncheckedCreateInput> & ProductUncheckedCreateInput) | (Without<...> & ProductCreateInput)'.
+  Type '{ name: string; description: string; shortDescription: string; price: number; compareAtPrice: number; sku: string; barcode: string; trackInventory: true; quantity: number; status: string; categoryId: string; }' is not assignable to type 'Without<ProductCreateInput, ProductUncheckedCreateInput> & ProductUncheckedCreateInput'.
+    Property 'slug' is missing in type '{ name: string; description: string; shortDescription: string; price: number; compareAtPrice: number; sku: string; barcode: string; trackInventory: true; quantity: number; status: string; categoryId: string; }' but required in type 'ProductUncheckedCreateInput'.
+src/components/base/carousel/baseCarouselContext.ts(2,25): error TS6133: 'useContext' is declared but its value is never read.
+src/components/base/datatable/DataTable.test.tsx(4,10): error TS6133: 'fireEvent' is declared but its value is never read.
+src/components/base/datatable/DataTable.test.tsx(55,9): error TS6133: 'container' is declared but its value is never read.
+src/components/base/datepicker/BaseDatePicker.tsx(37,7): error TS2322: Type '"outline"' is not assignable to type '"link" | "ghost" | "primary" | "primaryOutline" | null | undefined'.
+src/components/base/dialog/BaseModal.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/components/base/dialog/BaseModal.tsx(1,31): error TS6133: 'PropsWithChildren' is declared but its value is never read.
+src/components/base/input/BaseInput.test.tsx(2,10): error TS6133: 'fireEvent' is declared but its value is never read.
+src/components/layouts/admin-layout/AppSidebar.tsx(4,24): error TS6133: 'Sparkles' is declared but its value is never read.
+src/components/layouts/admin-layout/AppSidebar.tsx(6,1): error TS6133: 'Button' is declared but its value is never read.
+src/components/layouts/admin-layout/DashboardBreadcrumb.tsx(15,39): error TS2339: Property 'breadcrumb' does not exist on type 'StaticDataRouteOption'.
+src/components/layouts/admin-layout/DashboardBreadcrumb.tsx(17,28): error TS2339: Property 'breadcrumb' does not exist on type 'StaticDataRouteOption'.
+src/components/layouts/admin-layout/NavUser.tsx(3,10): error TS6133: 'useRouteContext' is declared but its value is never read.
+src/components/layouts/admin-layout/NavUser.tsx(9,2): error TS6133: 'Settings' is declared but its value is never read.
+src/components/layouts/admin-layout/NavUser.tsx(10,2): error TS6133: 'Sparkles' is declared but its value is never read.
+src/components/layouts/admin-layout/NavUser.tsx(27,19): error TS6133: 'handleLogout' is declared but its value is never read.
+src/components/layouts/admin-layout/NavUser.tsx(28,8): error TS6133: 'router' is declared but its value is never read.
+src/components/layouts/app-layout/AppPageInner.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/components/layouts/page-layout/PageHeader.tsx(5,1): error TS6133: 'Button' is declared but its value is never read.
+src/components/layouts/page-layout/PageHeader.tsx(26,2): error TS6133: 'gradientTitle' is declared but its value is never read.
+src/components/layouts/page-layout/PageHeader.tsx(42,7): error TS2322: Type '"icon"' is not assignable to type '"default" | "sm" | "lg" | undefined'.
+src/components/ui/command.tsx(58,9): error TS2322: Type '{ children: ReactNode; className: string; showCloseButton: boolean; }' is not assignable to type 'IntrinsicAttributes & DialogPopupProps'.
+  Property 'showCloseButton' does not exist on type 'IntrinsicAttributes & DialogPopupProps'.
+src/components/ui/form.tsx(1,38): error TS2307: Cannot find module '@radix-ui/react-label' or its corresponding type declarations.
+src/features/admin/ui/components/AccessDenied.tsx(1,31): error TS6133: 'MessageCircle' is declared but its value is never read.
+src/features/auth/ui/components/LoginForm.tsx(67,6): error TS2322: Type '"default"' is not assignable to type '"link" | "ghost" | "primary" | "primaryOutline" | null | undefined'.
+src/features/auth/ui/layout/AuthLayout.tsx(1,1): error TS6192: All imports in import declaration are unused.
+src/features/auth/ui/provider/auth.context.tsx(2,34): error TS2307: Cannot find module '../domain/auth.schema' or its corresponding type declarations.
+src/features/auth/ui/provider/auth.provider.tsx(14,31): error TS6133: 'isPending' is declared but its value is never read.
+src/features/auth/ui/views/AuthLoginView.tsx(2,1): error TS6133: 'ThemeToggle' is declared but its value is never read.
+src/features/category/ui/components/CategoryForm.tsx(37,56): error TS2322: Type '"media"' is not assignable to type '"name" | "slug" | "description" | "imageId" | "isFeatured" | "image" | "image.url" | "image.id"'.
+src/features/category/ui/components/ProCategoryListTable.tsx(24,19): error TS2339: Property 'media' does not exist on type '{ id: string; name: string; isFeatured: boolean; createdAt: Date; updatedAt: Date; slug?: string | null | undefined; description?: string | null | undefined; imageId?: string | null | undefined; image?: { ...; } | ... 1 more ... | undefined; }'.
+src/features/dashboard/domain/dashboard.service.ts(1,1): error TS6133: 'DashboardContract' is declared but its value is never read.
+src/features/dashboard/domain/dashboard.service.ts(4,14): error TS2554: Expected 1 arguments, but got 0.
+src/features/dashboard/ui/view/DashboardOverviewView.tsx(313,33): error TS2339: Property 'media' does not exist on type '{ id?: string | undefined; url?: string | undefined; }'.
+src/features/dashboard/ui/view/DashboardOverviewView.tsx(315,36): error TS2339: Property 'media' does not exist on type '{ id?: string | undefined; url?: string | undefined; }'.
+src/features/media/domain/media.service.ts(2,2): error TS6133: 'DeleteObjectCommand' is declared but its value is never read.
+src/features/media/domain/media.service.ts(6,1): error TS6133: 'join' is declared but its value is never read.
+src/features/store/ui/components/CategoryBar.tsx(3,1): error TS6192: All imports in import declaration are unused.
+src/features/store/ui/components/CategoryBar.tsx(31,9): error TS6133: 'emblaRef' is declared but its value is never read.
+src/features/store/ui/components/CategoryBar.tsx(37,8): error TS6133: 'scrollPrev' is declared but its value is never read.
+src/features/store/ui/components/CategoryBar.tsx(41,8): error TS6133: 'scrollNext' is declared but its value is never read.
+src/features/store/ui/components/FeaturedSpotlight.tsx(2,1): error TS6192: All imports in import declaration are unused.
+src/features/store/ui/components/FeaturedSpotlight.tsx(3,19): error TS6133: 'useState' is declared but its value is never read.
+src/features/store/ui/components/HeroSection.tsx(2,1): error TS6133: 'Autoplay' is declared but its value is never read.
+src/features/store/ui/view/CheckoutView.tsx(172,5): error TS2322: Type 'string' is not assignable to type 'CurrencyCode'.
+src/features/task/domain/task.repo.ts(12,36): error TS2322: Type '{ id: number; }' is not assignable to type 'TaskWhereUniqueInput'.
+  Type '{ id: number; }' is not assignable to type '{ id: string; } & { id?: string | undefined; AND?: TaskWhereInput | TaskWhereInput[] | undefined; OR?: TaskWhereInput[] | undefined; ... 8 more ...; updatedAt?: string | ... 2 more ... | undefined; }'.
+    Type '{ id: number; }' is not assignable to type '{ id: string; }'.
+      Types of property 'id' are incompatible.
+        Type 'number' is not assignable to type 'string'.
+src/features/task/domain/task.repo.ts(12,43): error TS2322: Type '{ id?: number | undefined; title?: string | undefined; description?: string | undefined; status?: "pending" | "in-progress" | "completed" | undefined; priority?: "low" | "medium" | "high" | undefined; dueDate?: Date | undefined; assignee?: string | undefined; createdAt?: Date | undefined; updatedAt?: Date | undefine...' is not assignable to type '(Without<TaskUpdateInput, TaskUncheckedUpdateInput> & TaskUncheckedUpdateInput) | (Without<...> & TaskUpdateInput)'.
+  Type '{ id?: number | undefined; title?: string | undefined; description?: string | undefined; status?: "pending" | "in-progress" | "completed" | undefined; priority?: "low" | "medium" | "high" | undefined; dueDate?: Date | undefined; assignee?: string | undefined; createdAt?: Date | undefined; updatedAt?: Date | undefine...' is not assignable to type 'Without<TaskUncheckedUpdateInput, TaskUpdateInput> & TaskUpdateInput'.
+    Types of property 'id' are incompatible.
+      Type 'number | undefined' is not assignable to type 'string | StringFieldUpdateOperationsInput | undefined'.
+        Type 'number' is not assignable to type 'string | StringFieldUpdateOperationsInput | undefined'.
+src/features/task/domain/task.repo.ts(16,36): error TS2322: Type '{ id: number; }' is not assignable to type 'TaskWhereUniqueInput'.
+  Type '{ id: number; }' is not assignable to type '{ id: string; } & { id?: string | undefined; AND?: TaskWhereInput | TaskWhereInput[] | undefined; OR?: TaskWhereInput[] | undefined; ... 8 more ...; updatedAt?: string | ... 2 more ... | undefined; }'.
+    Type '{ id: number; }' is not assignable to type '{ id: string; }'.
+      Types of property 'id' are incompatible.
+        Type 'number' is not assignable to type 'string'.
+src/features/task/domain/task.repo.ts(20,40): error TS2322: Type '{ id: number; }' is not assignable to type 'TaskWhereUniqueInput'.
+  Type '{ id: number; }' is not assignable to type '{ id: string; } & { id?: string | undefined; AND?: TaskWhereInput | TaskWhereInput[] | undefined; OR?: TaskWhereInput[] | undefined; ... 8 more ...; updatedAt?: string | ... 2 more ... | undefined; }'.
+    Type '{ id: number; }' is not assignable to type '{ id: string; }'.
+      Types of property 'id' are incompatible.
+        Type 'number' is not assignable to type 'string'.
+src/features/task/domain/task.service.ts(37,4): error TS2322: Type 'string' is not assignable to type 'number'.
+src/hooks/demo.useChat.ts(4,50): error TS2307: Cannot find module '#/db-collections' or its corresponding type declarations.
+src/routes/_shop/faq.tsx(58,17): error TS2322: Type '{ children: Element[]; type: string; collapsible: true; className: string; }' is not assignable to type 'IntrinsicAttributes & AccordionRootProps'.
+  Property 'type' does not exist on type 'IntrinsicAttributes & AccordionRootProps'.
+src/server/auth/index.ts(3,17): error TS6133: 'customSession' is declared but its value is never read.
+src/server/auth/index.ts(14,35): error TS6133: 'url' is declared but its value is never read.
+src/server/auth/index.ts(17,10): error TS6133: 'inviteUrl' is declared but its value is never read.

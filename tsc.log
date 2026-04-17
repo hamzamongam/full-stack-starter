@@ -1,0 +1,41 @@
+src/components/base/carousel/baseCarouselContext.ts(2,25): error TS6133: 'useContext' is declared but its value is never read.
+src/components/base/datatable/DataTable.test.tsx(4,10): error TS6133: 'fireEvent' is declared but its value is never read.
+src/components/base/datatable/DataTable.test.tsx(55,9): error TS6133: 'container' is declared but its value is never read.
+src/components/base/datepicker/BaseDatePicker.tsx(37,7): error TS2322: Type '"outline"' is not assignable to type '"link" | "ghost" | "primary" | "primaryOutline" | null | undefined'.
+src/components/base/dialog/BaseModal.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/components/base/dialog/BaseModal.tsx(1,31): error TS6133: 'PropsWithChildren' is declared but its value is never read.
+src/components/base/input/BaseInput.test.tsx(2,10): error TS6133: 'fireEvent' is declared but its value is never read.
+src/components/layouts/admin-layout/AppSidebar.tsx(4,24): error TS6133: 'Sparkles' is declared but its value is never read.
+src/components/layouts/admin-layout/AppSidebar.tsx(6,1): error TS6133: 'Button' is declared but its value is never read.
+src/components/layouts/admin-layout/DashboardBreadcrumb.tsx(15,39): error TS2339: Property 'breadcrumb' does not exist on type 'StaticDataRouteOption'.
+src/components/layouts/admin-layout/DashboardBreadcrumb.tsx(17,28): error TS2339: Property 'breadcrumb' does not exist on type 'StaticDataRouteOption'.
+src/components/layouts/admin-layout/NavUser.tsx(3,10): error TS6133: 'useRouteContext' is declared but its value is never read.
+src/components/layouts/admin-layout/NavUser.tsx(9,2): error TS6133: 'Settings' is declared but its value is never read.
+src/components/layouts/admin-layout/NavUser.tsx(10,2): error TS6133: 'Sparkles' is declared but its value is never read.
+src/components/layouts/admin-layout/NavUser.tsx(27,19): error TS6133: 'handleLogout' is declared but its value is never read.
+src/components/layouts/admin-layout/NavUser.tsx(28,8): error TS6133: 'router' is declared but its value is never read.
+src/components/layouts/app-layout/AppPageInner.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/components/layouts/page-layout/PageHeader.tsx(5,1): error TS6133: 'Button' is declared but its value is never read.
+src/components/layouts/page-layout/PageHeader.tsx(26,2): error TS6133: 'gradientTitle' is declared but its value is never read.
+src/components/layouts/page-layout/PageHeader.tsx(42,7): error TS2322: Type '"icon"' is not assignable to type '"default" | "sm" | "lg" | undefined'.
+src/components/ui/command.tsx(58,9): error TS2322: Type '{ children: ReactNode; className: string; showCloseButton: boolean; }' is not assignable to type 'IntrinsicAttributes & DialogPopupProps'.
+  Property 'showCloseButton' does not exist on type 'IntrinsicAttributes & DialogPopupProps'.
+src/components/ui/form.tsx(1,38): error TS2307: Cannot find module '@radix-ui/react-label' or its corresponding type declarations.
+src/features/admin/ui/components/AccessDenied.tsx(1,31): error TS6133: 'MessageCircle' is declared but its value is never read.
+src/features/auth/ui/components/LoginForm.tsx(67,6): error TS2322: Type '"default"' is not assignable to type '"link" | "ghost" | "primary" | "primaryOutline" | null | undefined'.
+src/features/auth/ui/layout/AuthLayout.tsx(1,1): error TS6192: All imports in import declaration are unused.
+src/features/auth/ui/provider/auth.provider.tsx(14,31): error TS6133: 'isPending' is declared but its value is never read.
+src/features/auth/ui/views/AuthLoginView.tsx(2,1): error TS6133: 'ThemeToggle' is declared but its value is never read.
+src/features/dashboard/domain/dashboard.service.ts(1,1): error TS6133: 'DashboardContract' is declared but its value is never read.
+src/features/media/domain/media.service.ts(2,2): error TS6133: 'DeleteObjectCommand' is declared but its value is never read.
+src/features/media/domain/media.service.ts(6,1): error TS6133: 'join' is declared but its value is never read.
+src/features/store/ui/components/CategoryBar.tsx(3,1): error TS6192: All imports in import declaration are unused.
+src/features/store/ui/components/CategoryBar.tsx(31,9): error TS6133: 'emblaRef' is declared but its value is never read.
+src/features/store/ui/components/CategoryBar.tsx(37,8): error TS6133: 'scrollPrev' is declared but its value is never read.
+src/features/store/ui/components/CategoryBar.tsx(41,8): error TS6133: 'scrollNext' is declared but its value is never read.
+src/features/store/ui/components/FeaturedSpotlight.tsx(2,1): error TS6192: All imports in import declaration are unused.
+src/features/store/ui/components/FeaturedSpotlight.tsx(3,19): error TS6133: 'useState' is declared but its value is never read.
+src/features/store/ui/components/HeroSection.tsx(2,1): error TS6133: 'Autoplay' is declared but its value is never read.
+src/server/auth/index.ts(3,17): error TS6133: 'customSession' is declared but its value is never read.
+src/server/auth/index.ts(14,35): error TS6133: 'url' is declared but its value is never read.
+src/server/auth/index.ts(17,10): error TS6133: 'inviteUrl' is declared but its value is never read.

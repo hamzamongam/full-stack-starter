@@ -1,0 +1,94 @@
+src/components/base/datatable/DataTable.test.tsx(4,10): error TS6133: 'fireEvent' is declared but its value is never read.
+src/components/base/datatable/DataTable.test.tsx(55,9): error TS6133: 'container' is declared but its value is never read.
+src/components/base/dialog/BaseModal.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/components/base/dialog/BaseModal.tsx(1,31): error TS6133: 'PropsWithChildren' is declared but its value is never read.
+src/components/base/input/BaseInput.test.tsx(2,10): error TS6133: 'fireEvent' is declared but its value is never read.
+src/components/base/input/BasePhoneInput.tsx(2,24): error TS2307: Cannot find module 'react-phone-number-input' or its corresponding type declarations.
+src/components/base/input/BasePhoneInput.tsx(36,15): error TS7006: Parameter 'val' implicitly has an 'any' type.
+src/components/base/upload/BaseImageUpload.test.tsx(5,36): error TS2307: Cannot find module '@/feature/upload/upload.server' or its corresponding type declarations.
+src/components/base/upload/BaseImageUpload.tsx(5,1): error TS6133: 'uploadStudentImage' is declared but its value is never read.
+src/components/base/upload/BaseImageUpload.tsx(5,36): error TS2307: Cannot find module '@/feature/upload/upload.server' or its corresponding type declarations.
+src/components/base/upload/BaseImageUpload.tsx(18,2): error TS6133: 'manualUpload' is declared but its value is never read.
+src/components/base/upload/BaseImageUpload.tsx(23,22): error TS6133: 'setIsUploading' is declared but its value is never read.
+src/components/layouts/admin-layout/AppSidebar.tsx(4,24): error TS6133: 'Sparkles' is declared but its value is never read.
+src/components/layouts/admin-layout/AppSidebar.tsx(6,1): error TS6133: 'Button' is declared but its value is never read.
+src/components/layouts/admin-layout/DashboardBreadcrumb.tsx(15,39): error TS2339: Property 'breadcrumb' does not exist on type 'StaticDataRouteOption'.
+src/components/layouts/admin-layout/DashboardBreadcrumb.tsx(17,28): error TS2339: Property 'breadcrumb' does not exist on type 'StaticDataRouteOption'.
+src/components/layouts/admin-layout/DashboardFooter.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/components/layouts/admin-layout/NavUser.tsx(3,10): error TS6133: 'useRouteContext' is declared but its value is never read.
+src/components/layouts/admin-layout/NavUser.tsx(9,2): error TS6133: 'Settings' is declared but its value is never read.
+src/components/layouts/admin-layout/NavUser.tsx(10,2): error TS6133: 'Sparkles' is declared but its value is never read.
+src/components/layouts/admin-layout/NavUser.tsx(27,19): error TS6133: 'handleLogout' is declared but its value is never read.
+src/components/layouts/admin-layout/NavUser.tsx(28,8): error TS6133: 'router' is declared but its value is never read.
+src/components/layouts/app-layout/AppFooter.tsx(2,10): error TS6133: 'Facebook' is declared but its value is never read.
+src/components/layouts/page-layout/PageHeader.tsx(5,1): error TS6133: 'Button' is declared but its value is never read.
+src/components/layouts/page-layout/PageHeader.tsx(26,2): error TS6133: 'gradientTitle' is declared but its value is never read.
+src/components/ui/command.tsx(58,9): error TS2322: Type '{ children: ReactNode; className: string; showCloseButton: boolean; }' is not assignable to type 'IntrinsicAttributes & DialogPopupProps'.
+  Property 'showCloseButton' does not exist on type 'IntrinsicAttributes & DialogPopupProps'.
+src/features/auth/server.ts(1,32): error TS2307: Cannot find module './auth.functions' or its corresponding type declarations.
+src/features/auth/ui/layout/AuthLayout.tsx(1,1): error TS6192: All imports in import declaration are unused.
+src/features/auth/ui/provider/auth.context.tsx(2,34): error TS2307: Cannot find module '../domain/auth.schema' or its corresponding type declarations.
+src/features/auth/ui/provider/auth.provider.tsx(14,31): error TS6133: 'isPending' is declared but its value is never read.
+src/features/auth/ui/views/AuthLoginView.tsx(2,1): error TS6133: 'ThemeToggle' is declared but its value is never read.
+src/features/category/domain/category.router.ts(18,35): error TS2322: Type 'number' is not assignable to type 'string'.
+src/features/product/domain/product.router.ts(19,28): error TS2345: Argument of type '({ input }: ProcedureHandlerOptions<Context, { id: string; name?: string | undefined; description?: string | undefined; shortDescription?: string | null | undefined; price?: number | undefined; compareAtPrice?: number | ... 1 more ... | undefined; ... 8 more ...; categoryId?: string | undefined; }, ORPCErrorConstruc...' is not assignable to parameter of type 'ProcedureHandler<Context, { id: string; name?: string | undefined; description?: string | undefined; shortDescription?: string | null | undefined; price?: number | undefined; compareAtPrice?: number | ... 1 more ... | undefined; ... 8 more ...; categoryId?: string | undefined; }, { ...; }, MergedErrorMap<...>, Recor...'.
+  Type 'Promise<SuccessResponse<{ id: string; name: string; description: string; price: number; trackInventory: boolean; quantity: number; status: "ACTIVE" | "DRAFT" | "ARCHIVED"; categoryId: string; createdAt: Date; ... 7 more ...; images?: any; } | undefined>>' is not assignable to type 'Promisable<{ success: true; data: { id: string; name: string; description: string; price: unknown; categoryId: string; createdAt: Date; updatedAt: Date; shortDescription?: string | null | undefined; ... 8 more ...; images?: any; }; message?: string | undefined; }>'.
+    Type 'Promise<SuccessResponse<{ id: string; name: string; description: string; price: number; trackInventory: boolean; quantity: number; status: "ACTIVE" | "DRAFT" | "ARCHIVED"; categoryId: string; createdAt: Date; ... 7 more ...; images?: any; } | undefined>>' is not assignable to type 'PromiseLike<{ success: true; data: { id: string; name: string; description: string; price: unknown; categoryId: string; createdAt: Date; updatedAt: Date; shortDescription?: string | null | undefined; ... 8 more ...; images?: any; }; message?: string | undefined; }>'.
+      Types of property 'then' are incompatible.
+        Type '<TResult1 = SuccessResponse<{ id: string; name: string; description: string; price: number; trackInventory: boolean; quantity: number; status: "ACTIVE" | "DRAFT" | "ARCHIVED"; categoryId: string; createdAt: Date; ... 7 more ...; images?: any; } | undefined>, TResult2 = never>(onfulfilled?: ((value: SuccessResponse<....' is not assignable to type '<TResult1 = { success: true; data: { id: string; name: string; description: string; price: unknown; categoryId: string; createdAt: Date; updatedAt: Date; shortDescription?: string | null | undefined; ... 8 more ...; images?: any; }; message?: string | undefined; }, TResult2 = never>(onfulfilled?: ((value: { ...; }) ...'.
+          Types of parameters 'onfulfilled' and 'onfulfilled' are incompatible.
+            Types of parameters 'value' and 'value' are incompatible.
+              Type 'SuccessResponse<{ id: string; name: string; description: string; price: number; trackInventory: boolean; quantity: number; status: "ACTIVE" | "DRAFT" | "ARCHIVED"; categoryId: string; createdAt: Date; ... 7 more ...; images?: any; } | undefined>' is not assignable to type '{ success: true; data: { id: string; name: string; description: string; price: unknown; categoryId: string; createdAt: Date; updatedAt: Date; shortDescription?: string | null | undefined; compareAtPrice?: unknown; ... 7 more ...; images?: any; }; message?: string | undefined; }'.
+                Types of property 'data' are incompatible.
+                  Type '{ id: string; name: string; description: string; price: number; trackInventory: boolean; quantity: number; status: "ACTIVE" | "DRAFT" | "ARCHIVED"; categoryId: string; createdAt: Date; ... 7 more ...; images?: any; } | undefined' is not assignable to type '{ id: string; name: string; description: string; price: unknown; categoryId: string; createdAt: Date; updatedAt: Date; shortDescription?: string | null | undefined; compareAtPrice?: unknown; offerPrice?: unknown; ... 6 more ...; images?: any; }'.
+                    Type 'undefined' is not assignable to type '{ id: string; name: string; description: string; price: unknown; categoryId: string; createdAt: Date; updatedAt: Date; shortDescription?: string | null | undefined; compareAtPrice?: unknown; offerPrice?: unknown; ... 6 more ...; images?: any; }'.
+src/features/product/domain/product.router.ts(23,28): error TS2345: Argument of type '({ input }: ProcedureHandlerOptions<Context, string, ORPCErrorConstructorMap<MergedErrorMap<Record<never, never>, Record<never, never>>>, Record<...>>) => Promise<...>' is not assignable to parameter of type 'ProcedureHandler<Context, string, { success: true; data: { id: string; name: string; description: string; price: unknown; categoryId: string; createdAt: Date; updatedAt: Date; shortDescription?: string | ... 1 more ... | undefined; ... 8 more ...; images?: any; }; message?: string | undefined; }, MergedErrorMap<...>...'.
+  Type 'Promise<SuccessResponse<{ id: string; name: string; description: string; price: number; trackInventory: boolean; quantity: number; status: "ACTIVE" | "DRAFT" | "ARCHIVED"; categoryId: string; createdAt: Date; ... 7 more ...; images?: any; } | undefined>>' is not assignable to type 'Promisable<{ success: true; data: { id: string; name: string; description: string; price: unknown; categoryId: string; createdAt: Date; updatedAt: Date; shortDescription?: string | null | undefined; ... 8 more ...; images?: any; }; message?: string | undefined; }>'.
+    Type 'Promise<SuccessResponse<{ id: string; name: string; description: string; price: number; trackInventory: boolean; quantity: number; status: "ACTIVE" | "DRAFT" | "ARCHIVED"; categoryId: string; createdAt: Date; ... 7 more ...; images?: any; } | undefined>>' is not assignable to type 'PromiseLike<{ success: true; data: { id: string; name: string; description: string; price: unknown; categoryId: string; createdAt: Date; updatedAt: Date; shortDescription?: string | null | undefined; ... 8 more ...; images?: any; }; message?: string | undefined; }>'.
+      Types of property 'then' are incompatible.
+        Type '<TResult1 = SuccessResponse<{ id: string; name: string; description: string; price: number; trackInventory: boolean; quantity: number; status: "ACTIVE" | "DRAFT" | "ARCHIVED"; categoryId: string; createdAt: Date; ... 7 more ...; images?: any; } | undefined>, TResult2 = never>(onfulfilled?: ((value: SuccessResponse<....' is not assignable to type '<TResult1 = { success: true; data: { id: string; name: string; description: string; price: unknown; categoryId: string; createdAt: Date; updatedAt: Date; shortDescription?: string | null | undefined; ... 8 more ...; images?: any; }; message?: string | undefined; }, TResult2 = never>(onfulfilled?: ((value: { ...; }) ...'.
+          Types of parameters 'onfulfilled' and 'onfulfilled' are incompatible.
+            Types of parameters 'value' and 'value' are incompatible.
+              Type 'SuccessResponse<{ id: string; name: string; description: string; price: number; trackInventory: boolean; quantity: number; status: "ACTIVE" | "DRAFT" | "ARCHIVED"; categoryId: string; createdAt: Date; ... 7 more ...; images?: any; } | undefined>' is not assignable to type '{ success: true; data: { id: string; name: string; description: string; price: unknown; categoryId: string; createdAt: Date; updatedAt: Date; shortDescription?: string | null | undefined; compareAtPrice?: unknown; ... 7 more ...; images?: any; }; message?: string | undefined; }'.
+                Types of property 'data' are incompatible.
+                  Type '{ id: string; name: string; description: string; price: number; trackInventory: boolean; quantity: number; status: "ACTIVE" | "DRAFT" | "ARCHIVED"; categoryId: string; createdAt: Date; ... 7 more ...; images?: any; } | undefined' is not assignable to type '{ id: string; name: string; description: string; price: unknown; categoryId: string; createdAt: Date; updatedAt: Date; shortDescription?: string | null | undefined; compareAtPrice?: unknown; offerPrice?: unknown; ... 6 more ...; images?: any; }'.
+                    Type 'undefined' is not assignable to type '{ id: string; name: string; description: string; price: unknown; categoryId: string; createdAt: Date; updatedAt: Date; shortDescription?: string | null | undefined; compareAtPrice?: unknown; offerPrice?: unknown; ... 6 more ...; images?: any; }'.
+src/features/product/ui/components/ProductActionRow.tsx(16,2): error TS6133: 'onDelete' is declared but its value is never read.
+src/features/product/ui/components/ProductActionRow.tsx(38,7): error TS2820: Type '"/admin/products/$productId/edit"' is not assignable to type '"/" | "." | "/login" | ".." | "/admin" | "/register" | "/shop" | "/admin/categories" | "/admin/login" | "/api/$" | "/admin/products/$productId" | "/admin/products/add" | "/api/auth/$" | "/api/rpc/$" | "/admin/products" | "/my-account"'. Did you mean '"/admin/products/$productId"'?
+src/features/product/ui/components/ProductActionRow.tsx(39,17): error TS2353: Object literal may only specify known properties, and 'productId' does not exist in type 'ParamsReducerFn<RouterCore<Route<Register, any, "/", "/", string, "__root__", undefined, {}, MyRouterContext, AnyContext, ({ context }: BeforeLoadContextOptions<Register, any, ... 6 more ..., undefined>) => Promise<...>, ... 6 more ..., undefined>, "never", false, RouterHistory, Record<...>>, "PATH", string, "/admin...'.
+src/features/product/ui/components/ProductForm.tsx(3,1): error TS6133: 'zodResolver' is declared but its value is never read.
+src/features/product/ui/components/ProductForm.tsx(4,1): error TS6133: 'useForm' is declared but its value is never read.
+src/features/product/ui/components/ProductForm.tsx(5,1): error TS6133: 'z' is declared but its value is never read.
+src/features/product/ui/components/ProductForm.tsx(7,1): error TS6133: 'BaseButton' is declared but its value is never read.
+src/features/product/ui/components/ProductForm.tsx(12,2): error TS6133: 'Form' is declared but its value is never read.
+src/features/product/ui/components/ProductForm.tsx(38,2): error TS6133: 'mode' is declared but its value is never read.
+src/features/product/ui/components/ProductListTable.tsx(2,8): error TS6133: 'React' is declared but its value is never read.
+src/features/product/ui/hooks/useProductForm.tsx(36,16): error TS6133: 'data' is declared but its value is never read.
+src/features/product/ui/hooks/useProductForm.tsx(50,16): error TS2322: Type '"/dashboard/products"' is not assignable to type '"/" | "." | "/login" | ".." | "/admin" | "/register" | "/shop" | "/admin/categories" | "/admin/login" | "/api/$" | "/admin/products/$productId" | "/admin/products/add" | "/api/auth/$" | "/api/rpc/$" | "/admin/products" | "/my-account"'.
+src/features/product/ui/hooks/useProductForm.tsx(68,39): error TS2322: Type 'number' is not assignable to type 'string | unique symbol'.
+src/features/product/ui/view/AdminAddProductView.tsx(3,1): error TS6133: 'ContainerCard' is declared but its value is never read.
+src/features/task/domain/task.repo.ts(12,36): error TS2322: Type '{ id: number; }' is not assignable to type 'TaskWhereUniqueInput'.
+  Type '{ id: number; }' is not assignable to type '{ id: string; } & { id?: string | undefined; AND?: TaskWhereInput | TaskWhereInput[] | undefined; OR?: TaskWhereInput[] | undefined; ... 8 more ...; updatedAt?: string | ... 2 more ... | undefined; }'.
+    Type '{ id: number; }' is not assignable to type '{ id: string; }'.
+      Types of property 'id' are incompatible.
+        Type 'number' is not assignable to type 'string'.
+src/features/task/domain/task.repo.ts(12,43): error TS2322: Type '{ id?: number | undefined; title?: string | undefined; description?: string | undefined; status?: "pending" | "in-progress" | "completed" | undefined; priority?: "low" | "medium" | "high" | undefined; dueDate?: Date | undefined; assignee?: string | undefined; createdAt?: Date | undefined; updatedAt?: Date | undefine...' is not assignable to type '(Without<TaskUpdateInput, TaskUncheckedUpdateInput> & TaskUncheckedUpdateInput) | (Without<...> & TaskUpdateInput)'.
+  Type '{ id?: number | undefined; title?: string | undefined; description?: string | undefined; status?: "pending" | "in-progress" | "completed" | undefined; priority?: "low" | "medium" | "high" | undefined; dueDate?: Date | undefined; assignee?: string | undefined; createdAt?: Date | undefined; updatedAt?: Date | undefine...' is not assignable to type 'Without<TaskUncheckedUpdateInput, TaskUpdateInput> & TaskUpdateInput'.
+    Types of property 'id' are incompatible.
+      Type 'number | undefined' is not assignable to type 'string | StringFieldUpdateOperationsInput | undefined'.
+        Type 'number' is not assignable to type 'string | StringFieldUpdateOperationsInput | undefined'.
+src/features/task/domain/task.repo.ts(16,36): error TS2322: Type '{ id: number; }' is not assignable to type 'TaskWhereUniqueInput'.
+  Type '{ id: number; }' is not assignable to type '{ id: string; } & { id?: string | undefined; AND?: TaskWhereInput | TaskWhereInput[] | undefined; OR?: TaskWhereInput[] | undefined; ... 8 more ...; updatedAt?: string | ... 2 more ... | undefined; }'.
+    Type '{ id: number; }' is not assignable to type '{ id: string; }'.
+      Types of property 'id' are incompatible.
+        Type 'number' is not assignable to type 'string'.
+src/features/task/domain/task.repo.ts(20,40): error TS2322: Type '{ id: number; }' is not assignable to type 'TaskWhereUniqueInput'.
+  Type '{ id: number; }' is not assignable to type '{ id: string; } & { id?: string | undefined; AND?: TaskWhereInput | TaskWhereInput[] | undefined; OR?: TaskWhereInput[] | undefined; ... 8 more ...; updatedAt?: string | ... 2 more ... | undefined; }'.
+    Type '{ id: number; }' is not assignable to type '{ id: string; }'.
+      Types of property 'id' are incompatible.
+        Type 'number' is not assignable to type 'string'.
+src/features/task/domain/task.service.ts(37,4): error TS2322: Type 'string' is not assignable to type 'number'.
+src/hooks/demo.useChat.ts(4,50): error TS2307: Cannot find module '#/db-collections' or its corresponding type declarations.
+src/server/auth/index.ts(3,17): error TS6133: 'customSession' is declared but its value is never read.
+src/server/auth/index.ts(14,35): error TS6133: 'url' is declared but its value is never read.
+src/server/auth/index.ts(17,10): error TS6133: 'inviteUrl' is declared but its value is never read.
