@@ -12,8 +12,8 @@ import {
 	DialogTrigger,
 } from "@/components/ui/dialog";
 import type { TTaskOutput } from "../../domain/task.schema";
-import { TaskForm } from "../components/TaskForm";
 import useTaskForm from "../hooks/useTaskForm";
+import { TaskForm } from "./TaskForm";
 
 interface EditTaskModalProps {
 	task: TTaskOutput;

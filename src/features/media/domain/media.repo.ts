@@ -1,4 +1,4 @@
-import type { PrismaClient } from "@/generated/prisma/client";
+import { type Prisma, type PrismaClient } from "@/generated/prisma/client";
 import type { TCreateMedia, TMediaFilter } from "./media.schema";
 
 export class MediaRepository {
@@ -9,9 +9,15 @@ export class MediaRepository {
 	}
 
 	async getAll(filter: Partial<TMediaFilter> = {}) {
-		const { search, page = 1, limit = 20, type } = filter;
+		const {
+			search,
+			page = 1,
+			limit = 20,
+			type,
+			orderBy = { createdAt: "desc" },
+		} = filter;
 
-		const where: Record<string, any> = {};
+		const where: Prisma.MediaWhereInput = {};
 		if (search) {
 			where.OR = [
 				{ fileName: { contains: search, mode: "insensitive" } },
@@ -22,12 +28,24 @@ export class MediaRepository {
 			where.type = type;
 		}
 
-		const [items, total] = await Promise.all([
+		const [items, total] = await this.prisma.$transaction([
 			this.prisma.media.findMany({
 				where,
 				skip: (page - 1) * limit,
 				take: limit,
-				orderBy: { createdAt: "desc" },
+				orderBy,
+				select: {
+					id: true,
+					url: true,
+					fileName: true,
+					type: true,
+					altText: true,
+					imageKey: true,
+					mimeType: true,
+					size: true,
+					createdAt: true,
+					updatedAt: true,
+				},
 			}),
 			this.prisma.media.count({ where }),
 		]);

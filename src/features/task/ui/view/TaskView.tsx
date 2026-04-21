@@ -1,11 +1,12 @@
 "use client";
 
 import { getRouteApi } from "@tanstack/react-router";
+import { lazy, Suspense } from "react";
 import { PageLayout } from "@/components/layouts/page-layout";
 import TaskListTable from "../components/TaskListTable";
 import { useTaskList } from "../hooks/useTaskList";
-import AddTaskModal from "../widgets/AddTaskModal";
 
+const AddTaskModal = lazy(() => import("../components/AddTaskModal"));
 const route = getRouteApi("/admin/tasks");
 
 export default function TaskView() {
@@ -16,7 +17,11 @@ export default function TaskView() {
 		<PageLayout
 			title="Tasks"
 			subtitle="View and manage all tasks"
-			actions={<AddTaskModal />}
+			actions={
+				<Suspense fallback={null}>
+					<AddTaskModal />
+				</Suspense>
+			}
 		>
 			<TaskListTable
 				data={tasks?.data || []}

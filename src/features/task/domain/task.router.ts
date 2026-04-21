@@ -1,6 +1,8 @@
 import { implement } from "@orpc/server";
 import { prisma } from "@/db";
 import { ForbiddenError } from "@/server/errors";
+import type { Context } from "@/server/orpc/context";
+import { requiredAuthMiddleware } from "@/server/orpc/middleware";
 import {
 	toSuccessResponse,
 	toSuccessResponseWithPagination,
@@ -9,7 +11,7 @@ import { TaskContract } from "./task.contract";
 import { TaskRepository } from "./task.repo";
 import { TaskService } from "./task.service";
 
-const os = implement(TaskContract).$context();
+const os = implement(TaskContract).$context<Context>().use(requiredAuthMiddleware);
 
 const taskRepository = new TaskRepository(prisma);
 const taskService = new TaskService(taskRepository);

@@ -4,10 +4,10 @@ export const MediaTypeEnum = z.enum(["banner", "others"]);
 
 export const MediaSchema = z.object({
 	id: z.string(),
-	imageKey: z.string(),
+	imageKey: z.string().min(1, "Image key is required"),
 	type: MediaTypeEnum.optional().nullable(),
-	url: z.string(),
-	fileName: z.string(),
+	url: z.string().url("Valid URL is required"),
+	fileName: z.string().min(1, "File name is required"),
 	mimeType: z.string(),
 	size: z.number(),
 	altText: z.string().nullable().optional(),
@@ -20,6 +20,7 @@ export const MediaFilterSchema = z.object({
 	search: z.string().optional(),
 	page: z.number().min(1).default(1),
 	limit: z.number().min(1).max(100).default(20),
+	orderBy: z.any().optional(),
 });
 
 export const MediaInputSchema = z.object({

@@ -1,5 +1,5 @@
 import { useNavigate } from "@tanstack/react-router";
-import type { ColumnDef, PaginationState } from "@tanstack/react-table";
+import type { ColumnDef } from "@tanstack/react-table";
 import type { FC } from "react";
 import { DataTable } from "@/components/base/datatable";
 import { Badge } from "@/components/ui/badge";
@@ -14,6 +14,64 @@ interface TaskListTableProps {
 	limit?: number;
 }
 
+const COLUMNS: ColumnDef<TTaskOutput>[] = [
+	{
+		accessorKey: "title",
+		header: "Title",
+	},
+	{
+		accessorKey: "status",
+		header: "Status",
+		cell: ({ row }) => {
+			const status = row.original.status;
+			let variant: "default" | "secondary" | "destructive" | "outline" =
+				"secondary";
+
+			if (status === "completed") variant = "default";
+			if (status === "in_progress") variant = "outline";
+
+			return <Badge variant={variant}>{status}</Badge>;
+		},
+	},
+	{
+		accessorKey: "priority",
+		header: "Priority",
+		cell: ({ row }) => {
+			const priority = row.original.priority;
+			let variant: "default" | "secondary" | "destructive" | "outline" =
+				"outline";
+
+			if (priority === "high") variant = "destructive";
+			if (priority === "medium") variant = "default";
+
+			return (
+				<Badge variant={variant} className="capitalize">
+					{priority}
+				</Badge>
+			);
+		},
+	},
+	{
+		accessorKey: "assignee",
+		header: "Assignee",
+	},
+	{
+		accessorKey: "dueDate",
+		header: "Due Date",
+		cell: ({ row }) => new Date(row.original.dueDate).toLocaleDateString(),
+	},
+	{
+		accessorKey: "createdAt",
+		header: "Created At",
+		cell: ({ row }) => new Date(row.original.createdAt).toLocaleDateString(),
+	},
+	{
+		id: "actions",
+		header: "Actions",
+		cell: ({ row }) => <TaskActionRow task={row.original} />,
+	},
+];
+
 const TaskListTable: FC<TaskListTableProps> = ({
 	data,
 	isLoading,
@@ -22,11 +80,10 @@ const TaskListTable: FC<TaskListTableProps> = ({
 	limit = 10,
 }) => {
 	const navigate = useNavigate();
-	const columns = getColumns();
 
 	return (
 		<DataTable
-			columns={columns}
+			columns={COLUMNS}
 			data={data}
 			isLoading={isLoading}
 			manualPagination
@@ -55,63 +112,3 @@ const TaskListTable: FC<TaskListTableProps> = ({
 };
 
 export default TaskListTable;
-
-const getColumns = (): ColumnDef<TTaskOutput>[] => {
-	return [
-		{
-			accessorKey: "title",
-			header: "Title",
-		},
-		{
-			accessorKey: "status",
-			header: "Status",
-			cell: ({ row }) => {
-				const status = row.original.status;
-				let variant: "default" | "secondary" | "destructive" | "outline" =
-					"secondary";
-
-				if (status === "completed") variant = "default";
-				if (status === "in_progress") variant = "outline";
-
-				return <Badge variant={variant}>{status}</Badge>;
-			},
-		},
-		{
-			accessorKey: "priority",
-			header: "Priority",
-			cell: ({ row }) => {
-				const priority = row.original.priority;
-				let variant: "default" | "secondary" | "destructive" | "outline" =
-					"outline";
-
-				if (priority === "high") variant = "destructive";
-				if (priority === "medium") variant = "default";
-
-				return (
-					<Badge variant={variant} className="capitalize">
-						{priority}
-					</Badge>
-				);
-			},
-		},
-		{
-			accessorKey: "assignee",
-			header: "Assignee",
-		},
-		{
-			accessorKey: "dueDate",
-			header: "Due Date",
-			cell: ({ row }) => new Date(row.original.dueDate).toLocaleDateString(),
-		},
-		{
-			accessorKey: "createdAt",
-			header: "Created At",
-			cell: ({ row }) => new Date(row.original.createdAt).toLocaleDateString(),
-		},
-		{
-			id: "actions",
-			header: "Actions",
-			cell: ({ row }) => <TaskActionRow task={row.original} />,
-		},
-	];
-};

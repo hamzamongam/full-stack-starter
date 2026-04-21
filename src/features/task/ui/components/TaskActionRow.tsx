@@ -3,7 +3,7 @@ import type { FC } from "react";
 import { BaseButton } from "@/components/base/button";
 import type { TTaskOutput } from "../../domain/task.schema";
 import { useTaskDelete } from "../hooks/useTaskDelete";
-import EditTaskModal from "../widgets/EditTaskModal";
+import EditTaskModal from "./EditTaskModal";
 
 interface TaskRowActionsProps {
 	task: TTaskOutput;

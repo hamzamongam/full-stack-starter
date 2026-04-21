@@ -1,5 +1,7 @@
 import { implement } from "@orpc/server";
 import { prisma } from "@/db";
+import type { Context } from "@/server/orpc/context";
+import { requiredAuthMiddleware } from "@/server/orpc/middleware";
 import {
 	toSuccessResponse,
 	toSuccessResponseWithPagination,
@@ -8,7 +10,7 @@ import { MediaContract } from "./media.contract";
 import { MediaRepository } from "./media.repo";
 import { MediaService } from "./media.service";
 
-const os = implement(MediaContract).$context();
+const os = implement(MediaContract).$context<Context>().use(requiredAuthMiddleware);
 const mediaRepo = new MediaRepository(prisma);
 const mediaService = new MediaService(mediaRepo);
 

@@ -1,4 +1,4 @@
-import type { PrismaClient } from "@/generated/prisma/client";
+import type { Prisma, PrismaClient } from "@/generated/prisma/client";
 import type { TCreateTask, TUpdateTask } from "./task.schema";
 
 export class TaskRepository {
@@ -20,14 +20,22 @@ export class TaskRepository {
 		return this.prisma.task.findUnique({ where });
 	}
 
-	async getAll({ page, limit }: { page: number; limit: number }) {
+	async getAll({
+		page,
+		limit,
+		orderBy = { createdAt: "desc" },
+	}: {
+		page: number;
+		limit: number;
+		orderBy?: Prisma.TaskOrderByWithRelationInput;
+	}) {
 		const skip = (page - 1) * limit;
 
 		return this.prisma.$transaction([
 			this.prisma.task.findMany({
 				skip,
 				take: limit,
-				orderBy: { createdAt: "desc" },
+				orderBy,
 			}),
 			this.prisma.task.count(),
 		]);

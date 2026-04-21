@@ -1,7 +1,11 @@
 import { NotFoundError } from "@/server/errors";
 import type { TaskRepository } from "./task.repo";
-import type { TCreateTask, TTaskOutput, TUpdateTask } from "./task.schema";
-import type { TaskModel } from "./task.type";
+import type {
+	TaskModel,
+	TCreateTask,
+	TTaskOutput,
+	TUpdateTask,
+} from "./task.schema";
 
 export class TaskService {
 	constructor(private readonly taskRepository: TaskRepository) {}

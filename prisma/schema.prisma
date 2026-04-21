@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  output   = "./generated"
 }
 
 datasource db {
@@ -87,6 +87,8 @@ model Task {
   assignee    String
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
+
+  @@index([status, priority, createdAt])
 }
 
 enum TaskStatus {
@@ -120,6 +122,7 @@ model Media {
 
   position Int @default(0)
 
+  @@index([type, createdAt])
   @@map("media")
 }
 

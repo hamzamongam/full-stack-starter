@@ -5,7 +5,7 @@ description: Guidelines for scaffolding a new feature using the existing domain/
 
 # Feature Architecture & Code Style Guide
 
-This project follows a strict feature-based architecture pattern. When creating or modifying features, you MUST adhere to this structure to maintain consistency across the codebase.
+This project follows a strict **Vertical Slices** architectural pattern. When creating or modifying features, you MUST adhere to this structure to maintain consistency, security, and React 19/Compiler performance.
 
 ## Directory Structure
 
@@ -15,65 +15,44 @@ The feature directory is split into two main areas: `domain` (server/business lo
 ```text
 src/features/[featureName]/
 ├── domain/                          # Server-side & Business Logic
-│   ├── [featureName].schema.ts      # Zod schemas & TypeScript types
-│   ├── [featureName].repo.ts        # Database access (Prisma queries)
-│   ├── [featureName].service.ts     # Business logic layer (uses repo)
-│   ├── [featureName].contract.ts    # ORPC contract definitions (inputs/outputs)
-│   └── [featureName].router.ts      # ORPC router implementations
+│   ├── [featureName].contract.ts    # ORPC contract definitions
+│   ├── [featureName].repo.ts        # Database access (Prisma)
+│   ├── [featureName].router.ts      # ORPC router implementations
+│   ├── [featureName].schema.ts      # Consolidated Zod & TS Types
+│   └── [featureName].service.ts     # Business logic layer
 └── ui/                              # Client-side & React Components
-    ├── components/                  # UI components specific to the feature
-    ├── hooks/                       # Custom hooks (e.g., specific TanStack queries/mutations)
-    └── view/                        # Page-level view containers
+    ├── components/                  # Flat list of UI components & modals
+    ├── hooks/                       # Custom hooks (Queries/Mutations)
+    └── view/                        # Page-level containers (Views)
 ```
 
 ## Domain Layer
 
 ### 1. Schema (`[featureName].schema.ts`)
-- Defines Zod schemas for input validation and database models.
-- Exports inferred TypeScript types (e.g., `export type TFeature = z.infer<typeof FeatureSchema>;`).
-- Contains constants or base schemas used across the feature.
+- **Single Source of Truth**: Define all Zod schemas and TypeScript types here. Do NOT create separate `type.ts` files.
+- **Custom Messages**: Use user-friendly error messages (e.g., `.min(1, "Title is required")`).
+- **Prisma Integration**: Export `TaskModel` or similar Prisma payload types for service layer use.
 
 ### 2. Repository (`[featureName].repo.ts`)
-- Contains all raw database interaction utilizing Prisma (`import { prisma } from "@/db";`).
-- Defined as a class: `export class FeatureRepository { constructor(private db: typeof prisma) {} ... }`.
-- Methods should return raw data or null/undefined.
+- **Strict Typing**: Use Prisma-generated types for inputs (e.g., `Prisma.TaskWhereInput`).
+- **Flexibility**: Always support optional `orderBy` and `where` parameters in `getAll` methods instead of hardcoding sort order.
+- **Transaction Support**: Use `$transaction` for count + findMany operations.
 
-### 3. Service (`[featureName].service.ts`)
-- Handles business logic, validations, and orchestrates calls between repositories or other services.
-- Defined as a class: `export class FeatureService { constructor(private featureRepo: FeatureRepository) {} ... }`.
-- Throw domain-specific errors if necessary.
-
-### 4. Contract (`[featureName].contract.ts`)
-- Uses `@orpc/contract` and Zod to define input/output schemas for the feature's API.
-- Reuses schemas from `[featureName].schema.ts`.
-- Example format:
-  ```typescript
-  export const FeatureContract = oc.router({
-      create: oc.input(CreateSchema).output(SuccessResponseSchema(ModelSchema)),
-      // ...
-  });
-  ```
-
-### 5. Router (`[featureName].router.ts`)
-- Implements the contract's routes using `@orpc/server`.
-- Reuses `toSuccessResponse` formatting utility.
-- Exposes standard CRUD or business operations.
+### 3. Router (`[featureName].router.ts`)
+- **Security First**: Use the pre-configured `authedProcedure` for all routes requiring authentication.
+- **Context Injection**: Use `. $context<Context>().use(requiredAuthMiddleware)` if manual setup is required.
 
 ## UI Layer
 
-### 1. Components (`components/`)
-- Dumb React components for visualizing feature structures.
-- Use `lucide-react` for icons and standard UI/Design systems available in `src/components/ui/`.
+### 1. React 19 & Compiler Optimization
+- **Stable Constants**: Define data table columns, static configs, and initial states as `const` **outside** the component. This allows the **React Compiler** to optimize the component without manual `useMemo` hooks.
+- **Optimistic UI**: Implement `onMutate` handlers in feature hooks to provide a "premium" snappy feel (zero-latency updates).
 
-### 2. Hooks (`hooks/`)
-- Contains feature specific abstractions or local state logic.
-
-### 3. View (`view/`)
-- Smart components acting as whole page sections or features.
-- Connects to data sources via TanStack query using ORPC client.
-- Orchestrates multiple `components/`.
+### 2. Components (`components/`)
+- **Flat Structure**: All feature-specific components, including Modals and Dialogs, live here. Do not use a `widgets` subfolder.
+- **Composition**: Use small, focused components (e.g., `featureActionRow`, `featureForm`) rather than large monoliths.
 
 ## Key Rules
-- NEVER mix UI logic inside the `domain` folder or vice versa.
-- ALWAYS use the Repository pattern for database queries.
-- Validate all incoming ORPC requests using Zod schemas defined in `[featureName].schema.ts`.
+- **Pure Domain**: The `domain` folder must NEVER import from the `ui` folder.
+- **Secure by Default**: Every new ORPC router MUST be protected by authorization middleware unless it is explicitly public (e.g., Login/Signup).
+- **Clean Cleanup**: Delete empty `data/`, `type.ts`, or redundant directories immediately.
