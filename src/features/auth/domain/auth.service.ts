@@ -46,17 +46,24 @@ export class AuthService {
 			throw new BadRequestError("User already exists");
 		}
 
+		const userCount = await this.repo.countUsers();
+		const isFirstUser = userCount === 0;
+
 		const resp = await auth.api.signUpEmail({
 			body: {
 				email: input.email,
 				name: input.name,
 				password: input.password,
-				// role: "user",
 			},
 		});
 
 		if (!resp || !resp.user) {
 			throw new BadRequestError("Account creation failed");
+		}
+
+		if (isFirstUser) {
+			await this.repo.updateUser(resp.user.id, { role: "superAdmin" });
+			logger.info({ userId: resp.user.id }, "First user assigned superAdmin role");
 		}
 
 		logger.info(

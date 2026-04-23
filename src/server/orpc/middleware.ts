@@ -62,3 +62,28 @@ export const requiredAuthMiddleware = baseContext.middleware(
 		});
 	},
 );
+
+/**
+ * requiredSuperAdminMiddleware ensures that the authenticated user has the 'superAdmin' role.
+ * It expects to be used after requiredAuthMiddleware in the middleware chain.
+ *
+ * @throws {ORPCError} FORBIDDEN if the user is not a superAdmin.
+ */
+export const requiredSuperAdminMiddleware = os.middleware(
+	async ({ next, context }) => {
+		const user = (context as any).user;
+		if (!user || user.role !== "superAdmin") {
+			logger.warn(
+				{ userId: user?.id, role: user?.role },
+				"Access denied: superAdmin role required",
+			);
+			throw new ORPCError("FORBIDDEN", {
+				message: "Super Admin access required",
+			});
+		}
+
+		return next({
+			context,
+		});
+	},
+);

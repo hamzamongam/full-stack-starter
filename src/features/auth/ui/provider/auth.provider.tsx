@@ -23,9 +23,14 @@ export const AuthProvider = ({
 		},
 	);
 
-	const parceSession = () => {
+	const parseSession = () => {
 		if (!session) return null;
-		return AuthSessionSchema.parse(session);
+		try {
+			return AuthSessionSchema.parse(session);
+		} catch (error) {
+			console.error("AuthSession parsing failed:", error);
+			return null;
+		}
 	};
 
 	const handleLogout = async () => {
@@ -39,7 +44,7 @@ export const AuthProvider = ({
 	};
 
 	return (
-		<AuthContext value={{ session: parceSession(), handleLogout }}>
+		<AuthContext value={{ session: parseSession(), handleLogout }}>
 			{children}
 		</AuthContext>
 	);

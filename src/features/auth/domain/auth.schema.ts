@@ -20,19 +20,19 @@ export const CreateSchoolProfileSchema = z.object({
 
 export const UserSchema = z.object({
 	id: z.string(),
-	email: z.email(),
+	email: z.string().email(),
 	name: z.string(),
-	role: z.enum(["user", "admin", "superAdmin"]),
-});
+	role: z.string().optional(),
+}).passthrough();
 
 export const AuthSessionSchema = z.object({
 	user: UserSchema,
 	session: z.object({
 		id: z.string(),
-		expiresAt: z.date(),
-		createdAt: z.date(),
-	}),
-});
+		expiresAt: z.any(),
+		createdAt: z.any(),
+	}).passthrough(),
+}).passthrough();
 
 export type TLoginSchema = z.infer<typeof loginSchema>;
 export type SignUpInput = z.infer<typeof SignUpSchema>;

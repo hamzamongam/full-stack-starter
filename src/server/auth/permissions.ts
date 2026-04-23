@@ -16,4 +16,8 @@ export const roles = {
 		media: ["create", "list", "update", "delete"],
 		...adminAc.statements,
 	}),
+	superAdmin: ac.newRole({
+		media: ["create", "list", "update", "delete"],
+		...adminAc.statements,
+	}),
 };

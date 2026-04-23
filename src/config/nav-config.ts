@@ -3,7 +3,9 @@ import {
 	LayoutDashboard,
 	ListTodo,
 	type LucideIcon,
+	Users,
 } from "lucide-react";
+
 import type { FileRouteTypes } from "../routeTree.gen";
 
 type AppUrl = FileRouteTypes["to"] | (string & {});
@@ -11,6 +13,7 @@ type AppUrl = FileRouteTypes["to"] | (string & {});
 interface SubMenuItem {
 	title: string;
 	url: AppUrl;
+	requiredRole?: "user" | "admin" | "superAdmin";
 }
 
 interface SidebarMenus {
@@ -19,6 +22,7 @@ interface SidebarMenus {
 	icon: LucideIcon;
 	isActive?: boolean;
 	items?: SubMenuItem[];
+	requiredRole?: "user" | "admin" | "superAdmin";
 }
 
 export const sidebarMenus: SidebarMenus[] = [
@@ -27,6 +31,12 @@ export const sidebarMenus: SidebarMenus[] = [
 		url: "/admin",
 		icon: LayoutDashboard,
 		isActive: true,
+	},
+	{
+		title: "Users",
+		url: "/admin/users",
+		icon: Users,
+		requiredRole: "superAdmin",
 	},
 	{
 		title: "Tasks",
